@@ -14,13 +14,14 @@ class MainActivity : BaseActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val v = SharedPref.getValue(this)
+        val v = getValue(this)
         if (v != 0) {
             binding.tv.isVisible = false
         }
 
         binding.btn.setOnClickListener {
-            SharedPref.setValue(this, 1)
+            setValue(this, 1)
+            binding.tv.isVisible = false
         }
     }
 }
